@@ -1,5 +1,7 @@
 package com.qa.persistence.domain;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,11 +16,12 @@ public class Classroom {
 	@Id
 	private Long classroomId;
 	private String trainer;
-	
-	@OneToMany
+
     @JoinColumn(name="trainee_id")
 	private Trainee trainee;
-	
+    
+	@OneToMany(mappedBy = "classroom")
+	private List<Trainee> trainees;
 	public Classroom() {
 		
 	}
@@ -28,9 +31,7 @@ public class Classroom {
 		this.classroomId = classroomId;
 		this.trainer =trainer;
 	}
-	
-	
-	
+
 	public Long getClassroomId() {
 		return classroomId;
 	}
@@ -43,5 +44,11 @@ public class Classroom {
 	public void setTrainer(String trainer) {
 		this.trainer = trainer;
 	}
+	 public List<Trainee> getBooks() {
+	        return trainees;
+	    }
 
+	    public void setBooks(List<Trainee> trainees) {
+	        this.trainees = trainees;
+	    }
 }
