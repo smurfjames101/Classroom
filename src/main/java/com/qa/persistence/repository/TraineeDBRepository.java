@@ -9,6 +9,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 
+import com.qa.persistence.domain.Classroom;
 import com.qa.persistence.domain.Trainee;
 import com.qa.util.JSONUtil;
 
@@ -44,6 +45,8 @@ public class TraineeDBRepository implements TraineeRepository {
 		String delOut = deleteTrainee(id);
 		return "Trainee updated."+delOut;
 	}
+	
+	
 
 	@Override
 	@Transactional(REQUIRED)
@@ -57,9 +60,7 @@ public class TraineeDBRepository implements TraineeRepository {
 
 	@Override
 	public String getATrainee(Long id){
-		Query query = manager.createQuery("Select a FROM Trainee a where traineeId=" + id );
-		Collection<Trainee> trainees = (Collection<Trainee>) query.getResultList();
-		return util.getJSONForObject(trainees);
+		return util.getJSONForObject(manager.find(Trainee.class, id));
 	}
 
 	public void setManager(EntityManager manager) {

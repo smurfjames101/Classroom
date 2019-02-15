@@ -52,9 +52,9 @@ public class TraineeDBRepositoryTest {
 	@Test
 	public void testGetATrainee()
 	{
-//		Mockito.when(manager.find(Trainee.class,1L)).thenReturn(util.getObjectForJSON(MOCK_OBJECT,Trainee.class));
-//		Assert.assertEquals(MOCK_OBJECT,repo.getATrainee(1L));
-//	
+		Mockito.when(manager.find(Trainee.class,1L)).thenReturn(util.getObjectForJSON(MOCK_OBJECT,Trainee.class));
+		Assert.assertEquals(MOCK_OBJECT,repo.getATrainee(1L));
+	
 	}
 
 	@Test
