@@ -26,7 +26,7 @@ public class TraineeEndpoint {
 	@Path("/getATrainee/{option}")
 	@GET
 	@Produces({"application/json"})
-	public String getATrainee(@PathParam("option") String option)
+	public String getATrainee(@PathParam("option") Long option)
 	{
 		return service.getATrainee(option);
 	}

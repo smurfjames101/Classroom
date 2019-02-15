@@ -7,9 +7,10 @@ public interface TraineeService {
 	String getAllTrainees();
 	
 	String updateTrainee(String trainee,Long traineeId);
-	
-	String getATrainee(String option);
+
 	
 	String deleteTrainee(Long traineeId);
+
+	String getATrainee(Long option);
 	
 }

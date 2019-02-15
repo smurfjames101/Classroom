@@ -18,6 +18,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import com.qa.persistence.domain.Classroom;
 import com.qa.persistence.domain.Trainee;
 import com.qa.persistence.repository.TraineeDBRepository;
 import com.qa.util.JSONUtil;
@@ -46,6 +47,14 @@ public class TraineeDBRepositoryTest {
 		repo.setManager(manager);
 		util = new JSONUtil();
 		repo.setUtil(util);
+	}
+	
+	@Test
+	public void testGetATrainee()
+	{
+		Mockito.when(manager.find(Trainee.class,1L)).thenReturn(util.getObjectForJSON(MOCK_OBJECT,Trainee.class));
+		Assert.assertEquals(MOCK_OBJECT,repo.getATrainee(1L));
+	
 	}
 
 	@Test

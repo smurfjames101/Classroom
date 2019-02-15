@@ -56,8 +56,8 @@ public class TraineeDBRepository implements TraineeRepository {
 	}
 
 	@Override
-	public String getATrainee(String option){
-		Query query = manager.createQuery("Select a FROM Trainee a where traineeId=" + option );
+	public String getATrainee(Long id){
+		Query query = manager.createQuery("Select a FROM Trainee a where traineeId=" + id );
 		Collection<Trainee> trainees = (Collection<Trainee>) query.getResultList();
 		return util.getJSONForObject(trainees);
 	}

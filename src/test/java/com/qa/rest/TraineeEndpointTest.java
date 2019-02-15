@@ -46,8 +46,8 @@ public class TraineeEndpointTest {
 	@Test
 	public void testGetATrainee()
 	{
-		Mockito.when(service.getATrainee("1")).thenReturn(MOCK_VALUE);
-		Assert.assertEquals(MOCK_VALUE, endpoint.getATrainee("1"));
+		Mockito.when(service.getATrainee(1L)).thenReturn(MOCK_VALUE);
+		Assert.assertEquals(MOCK_VALUE, endpoint.getATrainee(1L));
 	}
 	
 	@Test

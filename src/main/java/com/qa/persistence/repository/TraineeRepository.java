@@ -10,5 +10,5 @@ public interface TraineeRepository {
 	
 	String deleteTrainee(Long trainee);
 
-	String getATrainee(String option);
+	String getATrainee(Long id);
 }

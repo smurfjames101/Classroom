@@ -39,7 +39,7 @@ public class TraineeServiceImpl implements TraineeService{
 	} 
 
 	@Override
-	public String getATrainee(String option) {
+	public String getATrainee(Long option) {
 		return repo.getATrainee(option);
 	}
 	

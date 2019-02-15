@@ -64,7 +64,7 @@ public class TraineeServiceImplTest {
 
 	@Test
 	public void testGetA()	{
-		Mockito.when(repo.getATrainee("1")).thenReturn(MOCK_OBJECT);
-		assertEquals(MOCK_OBJECT, repo.getATrainee("1"));
+		Mockito.when(repo.getATrainee(1L)).thenReturn(MOCK_OBJECT);
+		assertEquals(MOCK_OBJECT, repo.getATrainee(1L));
 	}
 }
