@@ -38,15 +38,12 @@ public class TraineeDBRepository implements TraineeRepository {
 
 	@Override
 	public String updateTrainee(String trainee, Long trainee_id) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	@Transactional(REQUIRED)
 	public String deleteTrainee(Long traineeId) {
-		// Trainee traineeInDB = util.getObjectForJSON(getATrainee(traineeId),
-		// Trainee.class);
 		if (manager.contains(manager.find(Trainee.class, traineeId))) {
 
 			manager.remove(manager.find(Trainee.class, traineeId));

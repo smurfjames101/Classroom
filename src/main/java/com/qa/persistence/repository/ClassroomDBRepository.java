@@ -46,8 +46,6 @@ public class ClassroomDBRepository implements ClassroomRepository {
 	@Override
 	@Transactional(REQUIRED)
 	public String deleteClassroom(Long id) {
-		// Classroom classroomInDB = util.getObjectForJSON(getAClassroom(id),
-		// Classroom.class);
 		if (manager.contains(manager.find(Classroom.class, id))) {
 
 			manager.remove(manager.find(Classroom.class, id));
@@ -65,7 +63,6 @@ public class ClassroomDBRepository implements ClassroomRepository {
 
 	@Override
 	public String updateClassroom(String classroom, Long id) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
