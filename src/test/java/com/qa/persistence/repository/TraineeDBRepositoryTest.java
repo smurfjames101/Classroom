@@ -37,7 +37,7 @@ public class TraineeDBRepositoryTest {
 
 
 	private static final String MOCK_DATA_ARRAY = "[{\"traineeId\":1,\"traineeName\":\"Joe Bloggs\"}]";
-	private static final String MOCK_OBJECT = "\"{\\\"traineeId\\\":1,\\\"traineeName\\\":\\\"Joe Bloggs\\\"}\"";
+	private static final String MOCK_OBJECT = "{\"traineeId\":1,\"traineeName\":\"Joe Bloggs\"}";
 
 	@Before
 	public void setup() {
