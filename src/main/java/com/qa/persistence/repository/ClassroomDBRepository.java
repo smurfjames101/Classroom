@@ -37,8 +37,8 @@ public class ClassroomDBRepository implements ClassroomRepository {
 	}
 
 	@Override
-	public String getAClassroom(String option, String contains) {
-		Query query = manager.createQuery("Select a FROM Classroom a where " + option + "=" + contains);
+	public String getAClassroom(String option) {
+		Query query = manager.createQuery("Select a FROM Classroom a where classroomId = " + option);
 		Collection<Classroom> classrooms = (Collection<Classroom>) query.getResultList();
 		return util.getJSONForObject(classrooms);
 	}

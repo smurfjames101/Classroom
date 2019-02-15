@@ -26,8 +26,8 @@ public class ClassroomServiceImplTest {
 	
 	JSONUtil util;
 	private static final String MOCK_VALUE = "1";
-	private static final String MOCK_OBJECT = "{\"classroomId\":1,\"classroomName\":\"Ring Binder\",\"description\":\"Standard ring binder containing descriptive sleeve\",\"classroomLine\":\"Back-To-School\",\"price\":3.0,\"mSRP\":2.8}";
-	
+	private static final String MOCK_OBJECT = "{\"classroomId\":1,\"trainer\":\"John Gordon\"}";
+
 	@Before
 	public void setup() {
 		service.setRepo(repo);
@@ -62,7 +62,7 @@ public class ClassroomServiceImplTest {
 	}
 	@Test
 	public void testGetA()	{
-		Mockito.when(repo.getAClassroom("classroomId", "1")).thenReturn(MOCK_OBJECT);
-		assertEquals(MOCK_OBJECT, repo.getAClassroom("classroomId", "1"));
+		Mockito.when(repo.getAClassroom("1")).thenReturn(MOCK_OBJECT);
+		assertEquals(MOCK_OBJECT, repo.getAClassroom("1"));
 	}
 }

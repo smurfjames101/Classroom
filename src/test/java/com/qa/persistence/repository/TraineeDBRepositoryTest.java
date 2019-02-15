@@ -35,9 +35,9 @@ public class TraineeDBRepositoryTest {
 	private JSONUtil util;
 	
 
-	private static final String MOCK_DATA_ARRAY = "[{\"traineeId\":1,\"traineeName\":\"Ring Binder\",\"description\":\"Standard ring binder containing descriptive sleeve\",\"traineeLine\":\"Back-To-School\",\"price\":3.0,\"mSRP\":2.8}]";
-	private static final String MOCK_SINGLE_ARRAY = "[{\"traineeId\":1,\"amount\":0}]";
-	private static final String MOCK_OBJECT = "{\"traineeId\":1,\"traineeName\":\"Ring Binder\",\"description\":\"Standard ring binder containing descriptive sleeve\",\"traineeLine\":\"Back-To-School\",\"price\":3.0,\"mSRP\":2.8}";
+
+	private static final String MOCK_DATA_ARRAY = "[{\"traineeId\":1,\"traineeName\":\"Joe Bloggs\"}]";
+	private static final String MOCK_OBJECT = "\"{\\\"traineeId\\\":1,\\\"traineeName\\\":\\\"Joe Bloggs\\\"}\"";
 
 	@Before
 	public void setup() {
@@ -52,7 +52,7 @@ public class TraineeDBRepositoryTest {
 		List<Trainee> trainees = new ArrayList<Trainee>();
 		trainees.add(util.getObjectForJSON(MOCK_OBJECT, Trainee.class));
 		Mockito.when(query.getResultList()).thenReturn(trainees);
-		Assert.assertEquals(MOCK_SINGLE_ARRAY, repo.getAllTrainee());
+		Assert.assertEquals(MOCK_DATA_ARRAY, repo.getAllTrainees());
 	}
 
 	@Test

@@ -6,7 +6,7 @@ public interface ClassroomRepository {
 	String createClassroom(String product);
 
 	String getAllClassrooms();
-	String getAClassroom(String option,String contains);
+	String getAClassroom(String option);
 
 	String updateClassroom(String product, Long id);
 

@@ -35,9 +35,9 @@ public class ClassroomDBRepositoryTest {
 	private JSONUtil util;
 	
 
-	private static final String MOCK_DATA_ARRAY = "[{\"classroomId\":1,\"classroomName\":\"Ring Binder\",\"description\":\"Standard ring binder containing descriptive sleeve\",\"classroomLine\":\"Back-To-School\",\"price\":3.0,\"mSRP\":2.8}]";
+	private static final String MOCK_DATA_ARRAY = "[{\"classroomId\":1,\"trainer\":\"John Gordon\"}]";
 
-	private static final String MOCK_OBJECT = "{\"classroomId\":1,\"classroomName\":\"Ring Binder\",\"description\":\"Standard ring binder containing descriptive sleeve\",\"classroomLine\":\"Back-To-School\",\"price\":3.0,\"mSRP\":2.8}";
+	private static final String MOCK_OBJECT = "{\"classroomId\":1,\"trainer\":\"John Gordon\"}";
 
 	@Before
 	public void setup() {

@@ -22,8 +22,8 @@ public class ClassroomServiceImpl implements ClassroomService{
 	}
 
 	@Override
-	public String getAClassroom(String option, String contains) {
-		return repo.getAClassroom(option,contains);
+	public String getAClassroom(String option) {
+		return repo.getAClassroom(option);
 	}
 
 	@Override

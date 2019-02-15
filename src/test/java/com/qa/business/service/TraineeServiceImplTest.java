@@ -27,7 +27,7 @@ public class TraineeServiceImplTest {
 	
 	JSONUtil util;
 	private static final String MOCK_VALUE = "1";
-	private static final String MOCK_OBJECT = "{\"traineeId\":1,\"supplier\":\"BigStationaryLtd\",\"warehouse\":\"Salford\",\"location\":\"Manchester\",\"amount\":16,\"lastDeliveryDate\":\"2019-02-04\",\"nextDeliveryDate\":\"2019-02-11\"}";
+	private static final String MOCK_OBJECT = "{\"traineeId\":1,\"traineeName\":\"Joe Bloggs\"}";
 	
 	@Before
 	public void setup() {
@@ -58,13 +58,13 @@ public class TraineeServiceImplTest {
 	
 	@Test
 	public void testGetAll() {
-		Mockito.when(repo.getAllTrainee()).thenReturn(MOCK_VALUE);
-		assertEquals(MOCK_VALUE, service.getAllTrainee());
+		Mockito.when(repo.getAllTrainees()).thenReturn(MOCK_VALUE);
+		assertEquals(MOCK_VALUE, service.getAllTrainees());
 	}
 
 	@Test
 	public void testGetA()	{
-		Mockito.when(repo.getATrainee("traineeId", "1")).thenReturn(MOCK_OBJECT);
-		assertEquals(MOCK_OBJECT, repo.getATrainee("traineeId", "1"));
+		Mockito.when(repo.getATrainee("1")).thenReturn(MOCK_OBJECT);
+		assertEquals(MOCK_OBJECT, repo.getATrainee("1"));
 	}
 }

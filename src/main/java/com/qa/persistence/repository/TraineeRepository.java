@@ -2,13 +2,13 @@ package com.qa.persistence.repository;
 
 public interface TraineeRepository {
 
-	String createTrainee(String stock);
+	String createTrainee(String trainee);
 	
-	String getAllTrainee();
+	String getAllTrainees();
 	
-	String updateTrainee(String stock,Long stockId);
+	String updateTrainee(String trainee,Long traineeId);
 	
-	String deleteTrainee(Long stock);
+	String deleteTrainee(Long trainee);
 
-	String getATrainee(String option, String contains);
+	String getATrainee(String option);
 }

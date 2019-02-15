@@ -17,8 +17,8 @@ public class TraineeServiceImpl implements TraineeService{
 	}
 
 	@Override
-	public String getAllTrainee() {
-		return repo.getAllTrainee();
+	public String getAllTrainees() {
+		return repo.getAllTrainees();
 	}
 	@Override
 	public String updateTrainee(String trainee, Long traineeId) {
@@ -39,8 +39,8 @@ public class TraineeServiceImpl implements TraineeService{
 	} 
 
 	@Override
-	public String getATrainee(String option, String contains) {
-		return repo.getATrainee(option, contains);
+	public String getATrainee(String option) {
+		return repo.getATrainee(option);
 	}
 	
 	

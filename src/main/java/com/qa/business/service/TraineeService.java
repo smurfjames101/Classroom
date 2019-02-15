@@ -4,11 +4,11 @@ public interface TraineeService {
 
 	String createTrainee(String trainee);
 	
-	String getAllTrainee();
+	String getAllTrainees();
 	
 	String updateTrainee(String trainee,Long traineeId);
 	
-	String getATrainee(String option, String contains);
+	String getATrainee(String option);
 	
 	String deleteTrainee(Long traineeId);
 	

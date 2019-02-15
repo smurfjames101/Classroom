@@ -29,7 +29,7 @@ public class TraineeDBRepository implements TraineeRepository {
 	}
 
 	@Override
-	public String getAllTrainee() {
+	public String getAllTrainees() {
 		Query query = manager.createQuery("Select a FROM Trainee a");
 		Collection<Trainee> traineeItems = (Collection<Trainee>) query.getResultList();
 
@@ -52,8 +52,8 @@ public class TraineeDBRepository implements TraineeRepository {
 	}
 
 	@Override
-	public String getATrainee(String option, String contains) {
-		Query query = manager.createQuery("Select a FROM Trainee a where " + option + "=" + contains);
+	public String getATrainee(String option){
+		Query query = manager.createQuery("Select a FROM Trainee a where traineeId=" + option );
 		Collection<Trainee> trainees = (Collection<Trainee>) query.getResultList();
 		return util.getJSONForObject(trainees);
 	}
