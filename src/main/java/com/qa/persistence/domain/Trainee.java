@@ -16,7 +16,6 @@ public class Trainee {
 	private String traineeName;
 	
 	@ManyToOne
-	@JoinColumn(name = "classroom_id")
 	private Classroom classroom;
 	
 	public Trainee() {

@@ -16,10 +16,7 @@ public class Classroom {
 	@Id
 	private Long classroomId;
 	private String trainer;
-
-    @JoinColumn(name="trainee_id")
-	private Trainee trainee;
-    
+	
 	@OneToMany(mappedBy = "classroom")
 	private List<Trainee> trainees;
 	public Classroom() {
