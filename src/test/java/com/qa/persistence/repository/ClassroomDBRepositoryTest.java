@@ -37,17 +37,28 @@ public class ClassroomDBRepositoryTest {
 	private JSONUtil util;
 	
 
-	private static final String MOCK_DATA_ARRAY = "[{\"classroomId\":1,\"trainer\":\"John Gordon\"}]";
+	private static final String MOCK_DATA_ARRAY = "[{\"classroomId\":1,\"trainer\":\"John Gordon\",\"trainees\":[]}]";
 
-	private static final String MOCK_OBJECT = "{\"classroomId\":1,\"trainer\":\"John Gordon\"}";
+	private static final String MOCK_OBJECT = "{\"classroomId\":1,\"trainer\":\"John Gordon\",\"trainees\":[]}";
 
 	@Before
 	public void setup() {
 		repo.setManager(manager);
 		util = new JSONUtil();
 		repo.setUtil(util);
+		Classroom testClassroom = util.getObjectForJSON(MOCK_OBJECT, Classroom.class);
+		manager.persist(testClassroom);
 	}
 
+
+	@Test
+	public void testGetAnClassroom()
+	{
+		Mockito.when(manager.find(Classroom.class,1L)).thenReturn(util.getObjectForJSON(MOCK_OBJECT,Classroom.class));
+		Assert.assertEquals(MOCK_OBJECT,repo.getAClassroom(1L));
+	
+	}
+	
 	@Test
 	public void testGetAllClassrooms() {
 		Mockito.when(manager.createQuery(Mockito.anyString())).thenReturn(query);

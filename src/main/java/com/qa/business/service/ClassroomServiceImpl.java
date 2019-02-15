@@ -5,12 +5,12 @@ import javax.inject.Inject;
 import com.qa.persistence.repository.ClassroomRepository;
 import com.qa.util.JSONUtil;
 
-public class ClassroomServiceImpl implements ClassroomService{
-	
+public class ClassroomServiceImpl implements ClassroomService {
+
 	@Inject
 	private ClassroomRepository repo;
 	private JSONUtil util;
-	
+
 	@Override
 	public String createClassroom(String classroom) {
 		return repo.createClassroom(classroom);
@@ -22,8 +22,8 @@ public class ClassroomServiceImpl implements ClassroomService{
 	}
 
 	@Override
-	public String getAClassroom(String option) {
-		return repo.getAClassroom(option);
+	public String getAClassroom(Long id ) {
+		return repo.getAClassroom(id);
 	}
 
 	@Override

@@ -31,17 +31,15 @@ public class ClassroomDBRepository implements ClassroomRepository {
 	public String getAllClassrooms() {
 		Query query = manager.createQuery("Select a FROM Classroom a");
 		Collection<Classroom> classrooms = (Collection<Classroom>) query.getResultList();
-
 		return util.getJSONForObject(classrooms);
-
 	}
 
 	@Override
-	public String getAClassroom(String option) {
-		Query query = manager.createQuery("Select a FROM Classroom a where classroomId = " + option);
-		Collection<Classroom> classrooms = (Collection<Classroom>) query.getResultList();
-		return util.getJSONForObject(classrooms);
+	public String getAClassroom(Long id) {
+		return util.getJSONForObject(manager.find(Classroom.class, id));
 	}
+	
+	
 
 	@Override
 	@Transactional(REQUIRED)
@@ -53,17 +51,22 @@ public class ClassroomDBRepository implements ClassroomRepository {
 		return "{\"message\": \"Classroom sucessfully deleted\"}";
 	}
 
+
+	@Override
+	public String updateClassroom(String classroom, Long id) {
+		Classroom temp = new Classroom();
+		temp = util.getObjectForJSON(classroom, Classroom.class);
+		manager.persist(temp);
+		String delOut = deleteClassroom(id);
+		return "Classroom updated."+delOut;
+	}
+	
 	public void setManager(EntityManager manager) {
 		this.manager = manager;
 	}
 
 	public void setUtil(JSONUtil util) {
 		this.util = util;
-	}
-
-	@Override
-	public String updateClassroom(String classroom, Long id) {
-		return null;
 	}
 
 }

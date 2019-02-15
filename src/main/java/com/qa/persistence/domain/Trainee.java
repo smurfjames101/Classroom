@@ -1,5 +1,6 @@
 package com.qa.persistence.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,14 +16,11 @@ public class Trainee {
 	private Long traineeId;
 	private String traineeName;
 	
-	@ManyToOne
-	private Classroom classroom;
 	
 	public Trainee() {
 		
 	}
 	public Trainee(Long traineeId, String traineeName) {
-		super();
 		this.traineeId = traineeId;
 		this.traineeName = traineeName;
 	}

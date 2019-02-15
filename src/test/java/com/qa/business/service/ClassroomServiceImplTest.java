@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import javax.xml.ws.Service;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -54,6 +55,7 @@ public class ClassroomServiceImplTest {
 		assertEquals(MOCK_VALUE, service.updateClassroom(MOCK_VALUE, 1L));
 		Mockito.verify(repo).updateClassroom(MOCK_VALUE, 1L);
 	}
+
 	
 	@Test
 	public void testGetAll() {
@@ -62,7 +64,7 @@ public class ClassroomServiceImplTest {
 	}
 	@Test
 	public void testGetA()	{
-		Mockito.when(repo.getAClassroom("1")).thenReturn(MOCK_OBJECT);
-		assertEquals(MOCK_OBJECT, repo.getAClassroom("1"));
+		Mockito.when(repo.getAClassroom(1L)).thenReturn(MOCK_OBJECT);
+		assertEquals(MOCK_OBJECT, repo.getAClassroom(1L));
 	}
 }

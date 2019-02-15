@@ -1,4 +1,9 @@
 package com.qa.rest;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Ignore;
@@ -37,8 +42,15 @@ public class TraineeEndpointTest {
 		Assert.assertEquals(MOCK_VALUE, endpoint.getAllTrainees());
 	}
 
+
 	@Test
+	public void testGetATrainee()
+	{
+		Mockito.when(service.getATrainee("1")).thenReturn(MOCK_VALUE);
+		Assert.assertEquals(MOCK_VALUE, endpoint.getATrainee("1"));
+	}
 	
+	@Test
 	public void testCreateMovie() {
 		Mockito.when(service.createTrainee(MOCK_VALUE2)).thenReturn(MOCK_VALUE);
 		Assert.assertEquals(MOCK_VALUE, endpoint.createTrainee(MOCK_VALUE2));
@@ -53,4 +65,10 @@ public class TraineeEndpointTest {
 		Mockito.verify(service).deleteTrainee(1L);
 	}
 
+	@Path("/updateTrainee{trainee}/{id}")
+	@GET
+	@Produces({ "application/json" })
+	public String updateTrainee(@PathParam("trainee") String trainee, @PathParam("id") Long id) {
+		return service.updateTrainee(trainee, id);
+	}
 }

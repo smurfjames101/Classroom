@@ -25,7 +25,7 @@ public class TraineeDBRepository implements TraineeRepository {
 	public String createTrainee(String trainee) {
 		Trainee aTraineeItem = util.getObjectForJSON(trainee, Trainee.class);
 		manager.persist(aTraineeItem);
-		return "{\"message\": \"Item has been added\"}";
+		return "{\"message\": \"Trainee has been added\"}";
 	}
 
 	@Override
@@ -37,8 +37,12 @@ public class TraineeDBRepository implements TraineeRepository {
 	}
 
 	@Override
-	public String updateTrainee(String trainee, Long trainee_id) {
-		return null;
+	public String updateTrainee(String trainee, Long id) {
+		Trainee temp = new Trainee();
+		temp = util.getObjectForJSON(trainee, Trainee.class);
+		manager.persist(temp);
+		String delOut = deleteTrainee(id);
+		return "Trainee updated."+delOut;
 	}
 
 	@Override
@@ -48,7 +52,7 @@ public class TraineeDBRepository implements TraineeRepository {
 
 			manager.remove(manager.find(Trainee.class, traineeId));
 		}
-		return "{\"message\": \"Trainee Item Sucessfully Deleted\"}";
+		return "{\"message\": \"Trainee Sucessfully Removed\"}";
 	}
 
 	@Override

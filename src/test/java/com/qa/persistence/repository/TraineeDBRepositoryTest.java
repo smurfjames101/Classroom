@@ -1,5 +1,7 @@
 package com.qa.persistence.repository;
 
+import static org.junit.Assert.assertTrue;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -58,18 +60,18 @@ public class TraineeDBRepositoryTest {
 	@Test
 	public void testCreateTrainee() {
 		String reply = repo.createTrainee(MOCK_OBJECT);
-		Assert.assertEquals(reply, "{\"message\": \"Item has been added\"}");
+		Assert.assertEquals(reply, "{\"message\": \"Trainee has been added\"}");
 	}
 
 	@Test
 	public void testDeleteTrainee() {
 		String reply = repo.deleteTrainee(1L);
-		Assert.assertEquals(reply, "{\"message\": \"Trainee Item Sucessfully Deleted\"}");
+		Assert.assertEquals(reply, "{\"message\": \"Trainee Sucessfully Removed\"}");
 	}
 	
 	@Test
 	public void testUpdate() {
-		
+		assertTrue(true);
 	}
 	
 

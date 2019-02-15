@@ -46,7 +46,12 @@ public class ClassroomEndpointTest {
 	}
 
 	@Test
-	
+	public void testGetAClassroom()
+	{
+		Mockito.when(service.getAClassroom(1L)).thenReturn(MOCK_VALUE);
+		Assert.assertEquals(MOCK_VALUE, endpoint.getAClassroom(1L));
+	}
+	@Test
 	public void testDeleteClassroom() {
 		Mockito.when(service.deleteClassroom(1L)).thenReturn(MOCK_VALUE);
 		Assert.assertEquals(MOCK_VALUE, endpoint.deleteClassroom(1L));

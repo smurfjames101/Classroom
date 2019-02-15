@@ -12,43 +12,47 @@ import com.qa.business.service.ClassroomService;
 
 @Path("/classroom")
 public class ClassroomEndpoint {
-	
+
 	@Inject
 	private ClassroomService service;
-	
+
 	@Path("/getAllClassrooms")
 	@GET
-	@Produces({"application/json"})
+	@Produces({ "application/json" })
 	public String getAllClassrooms() {
 		return service.getAllClassrooms();
 	}
-	
+
 	@Path("/getAClassroom/{option}")
 	@GET
-	@Produces({"application/json"})
-	public String getAClassroom(@PathParam("option") String option)
-	{
-		return service.getAClassroom(option);
+	@Produces({ "application/json" })
+	public String getAClassroom(@PathParam("option") Long id) {
+		return service.getAClassroom(id);
 	}
-	
+
 	@Path("/createClassroom")
 	@POST
-	@Produces({"application/json"})
-	public String createClassroom(String recipe)
-	{
+	@Produces({ "application/json" })
+	public String createClassroom(String recipe) {
 		return service.createClassroom(recipe);
 	}
-	
+
 	@Path("/deleteClassroom/{id}")
 	@DELETE
-	@Produces({"application/json"})
-	public String deleteClassroom(@PathParam("id") Long id)
-	{
+	@Produces({ "application/json" })
+	public String deleteClassroom(@PathParam("id") Long id) {
 		return service.deleteClassroom(id);
 	}
-	
+
+	@Path("/addTraineeToClassroom/{traineeId}/{class}")
 	public void setService(ClassroomService service) {
 		this.service = service;
 	}
 	
+	@Path("/updateClassroom/{classroom}/{id}")
+	@GET
+	@Produces({ "application/json" })
+	public String updateClassroom(@PathParam("classroom") String classroom, @PathParam("id") Long id) {
+		return service.updateClassroom(classroom, id);
+	}
 }
